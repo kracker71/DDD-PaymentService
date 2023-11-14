@@ -11,8 +11,8 @@ export class Payment {
     @Column('float')
     overall_price: number
 
-    @Column('int')
-    id_table : number
+    @Column('varchar')
+    id_table : string
 
     @Column('int')
     id_order : number
@@ -21,7 +21,7 @@ export class Payment {
     is_delete: boolean = false
 
     @Column("bool")
-    is_paid:boolean = false
+    is_verify:boolean = false
 
     @CreateDateColumn()
     createAt: Date

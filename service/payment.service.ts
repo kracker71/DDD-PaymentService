@@ -1,6 +1,8 @@
 import {Payment} from "../model/payment.model"
+import axios from "axios"
 
 import db from "../model/database"
+import config  from "../config/config"
 
 const PaymentRepository = db.typeorm.getRepository(Payment)
 
@@ -87,6 +89,18 @@ const PaymentService = {
             return await PaymentRepository.save(Payment)
         }catch(error){
             console.log(error)
+            throw(error)
+        }
+    },
+
+    async getBill(id_table:number){
+        try{
+            const orders = await axios.get(`${config.api_gateway_url}:${config}/order/all/:${id_table}`)
+            if(!orders.data.data){
+                return []
+            }
+            return orders.data
+        }catch(error){
             throw(error)
         }
     }

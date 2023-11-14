@@ -88,6 +88,28 @@ const PaymentController = {
                 message:"Internal Server Error"
             })
         }
+    },
+
+    async getBill(req:Request,res:Response,next:any){
+        try{
+            const {id_table} = req.params
+            const bill = await PaymentService.getBill(Number(id_table))
+            const bill_price = bill.reduce((bill_price:number,order:any)=>{
+                bill_price += order.total_price
+            })
+            return res.status(200).send({
+                status:"success",
+                data:{
+                    orders:bill,
+                    bill_price:bill_price
+                }
+            })
+        }catch(error){
+            res.status(500).send({
+                status:"error",
+                message:"Internal Server Error"
+            })
+        }
     }
 }
 

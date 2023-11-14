@@ -11,7 +11,9 @@ const env_config = {
     db_port: process.env.DB_PORT,
     port: process.env.PORT,
     backend_url: process.env.BACKEND_URL,
-    database_type: process.env.DB_TYPE
+    database_type: process.env.DB_TYPE,
+    api_gateway_url:process.env.API_GATEWAY_URL,
+    api_gateway_prot:process.env.API_GATEWAY_PORT
 }
 
 export default env_config

@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/morgan": "^1.9.9",
+    "axios": "^1.6.1",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
     "pg": "^8.11.3",
